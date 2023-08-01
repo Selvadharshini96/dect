@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shape Detector</title>
+    <style>
+        *{
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .container{
+            position:relative;
+            width: 100%;
+            height: 100vh;
+        }
+        .main{
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(90deg, rgb(255, 142, 255), rgb(255, 150, 150));
+            padding: 10px;
+            background-image:url('https://i.pinimg.com/736x/5d/db/cd/5ddbcd34bd7a0dfbfac8f7f8208d6a1d.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .shape{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+            height: 50vh;
+            background-color: rgb(255, 255, 255);
+        }
+        .square{
+            margin: 15px;
+            width: 52px;
+            height: 52px;
+            background-color: black;
+        }
+        .rectangle{
+            margin: 15px;
+            width: 90px;
+            height: 40px;
+            background-color: black;
+        }
+        .circle{
+            margin: 15px;
+            width: 52px;
+            height: 52px;
+            border-radius: 100%;
+            background-color: black;
+        }
+        #opt{
+            width: 100px;
+            height: 4vh;
+            background-color:deeppink;
+            border-radius: 12px;
+            border: none;
+            font-weight: 900;
+            color: white;
+            font-size: 18px;
+        }
+        #num{
+            width: 190px;
+            height: 4vh;
+            background-color: rgb(255, 255, 255);
+            border-radius: 12px;
+            border: none;
+            font-weight: 900;
+            color: rgb(0, 0, 0);
+            font-size: 18px;
+        }
+        #generate{
+            width: 120px;
+            height: 4vh;
+            background-color:deeppink;
+            border-radius: 12px;
+            border: none;
+            font-weight: 900;
+            color: rgb(255, 255, 255);
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <section>
+        <div class="container">
+        <div class="main">
+            <h1 style="font-size: 32px; color:goldenrod; font-weight: 0" align="center">Shape Generator</h1>
+            <h3 style="font-size: 32px; color:goldenrod; font-weight: 500px;">Select shape, number of shapes, color</h3>
+            <select id="opt">
+                <option>Circle</option>
+                <option>Rectangle</option>
+                <option>Square</option>
+            </select>
+            <input type="color" name="" id="col">
+            <input type="number" placeholder="Number of shapes" name="" id="num"><br><br>
+            <button id="generate" onclick="myFunction()">Generate</button>
+        </div>
+        <div class="shape" id="Shape1"></div>
+    </div>
+    </section>
+    <script>
+        var temp = 1;
+        function myFunction() {
+            var getShape = document.getElementById("opt").value;
+            var getColor = document.getElementById("col").value;
+            var getNumber = document.getElementById("num").value
+            console.log(getShape)
+            console.log(getColor)
+            console.log(getNumber)
+            for (i = 0; i < getNumber; i++) {
+            if(getShape == "Square") {
+                var square = document.createElement('div')
+                square.className = 'square'
+                document.getElementById("Shape1").appendChild(square)
+                square.style.backgroundColor = `${getColor}`
+                square.style.display = 'flex'
+                square.style.justifyContent = 'center'
+                square.style.alignItems = 'center'
+                var text = document.createElement('p');
+                text.innerHTML = temp++
+                square.appendChild(text)
+
+            }
+            else if(getShape == "Rectangle") {
+                var rectangle= document.createElement('div')
+                rectangle.className = 'rectangle'
+                document.getElementById("Shape1").appendChild(rectangle)
+                rectangle.style.backgroundColor = `${getColor}`
+                rectangle.style.display = 'flex'
+                rectangle.style.justifyContent = 'center'
+                rectangle.style.alignItems = 'center'
+                var text = document.createElement('p');
+                text.innerHTML = temp++
+                rectangle.appendChild(text)
+            }
+            else {
+                var circle= document.createElement('div')
+                circle.className = 'circle'
+                document.getElementById("Shape1").appendChild(circle)
+                circle.style.backgroundColor = `${getColor}`
+                circle.style.display = 'flex'
+                circle.style.justifyContent = 'center'
+                circle.style.alignItems = 'center'
+                var text = document.createElement('p');
+                text.innerHTML = temp++
+                circle.appendChild(text)
+            }
+        }
+        }
+    </script>
+    </center>
+</body>
+</html>
